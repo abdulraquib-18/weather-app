@@ -1,4 +1,39 @@
-# React + Vite
+# 🌦 Weather App
+
+A responsive Weather App built using React + Vite that provides real-time weather information using the OpenWeather API.
+
+## 🚀 Live Demo
+
+https://weatherapp-abdulraquib.vercel.app
+
+## 📂 GitHub Repository
+
+https://github.com/abdulraquib-18/weather-app
+
+## ✨ Features
+
+- Search weather by city
+- Real-time weather data
+- Temperature, humidity, pressure
+- Wind speed and visibility
+- Sunrise and sunset
+- Dark/Light mode
+- Recent search history
+- Responsive design
+
+## 🛠 Technologies Used
+
+- React
+- Vite
+- CSS3
+- JavaScript
+- OpenWeather API
+
+## 👨‍💻 Author
+
+**Abdul Raquib**
+
+Email: abdulraquib045@gmail.com# React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
