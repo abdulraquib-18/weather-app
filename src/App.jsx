@@ -77,6 +77,13 @@ function App() {
     const data = await fetchWeather(city);
 
     setWeather(data);
+    const updatedHistory = [
+  city,
+  ...history.filter((item) => item.toLowerCase() !== city.toLowerCase()),
+].slice(0, 3);
+
+setHistory(updatedHistory);
+localStorage.setItem("history", JSON.stringify(updatedHistory));
     setCity("");
 
   } catch (err) {
@@ -101,13 +108,20 @@ function App() {
     return (
       <div className="splash-screen">
 
-        <h1>🌦️ Weather App</h1>
-
+        <h1 className="app-title">
+  🌦️ Weather App
+</h1>
 
 <p className="intro-text">
-  Search any city and get accurate real-time weather updates,
-  including temperature, humidity, wind speed, pressure,
-  visibility, sunrise and sunset.
+  Search any city and get accurate
+  <span> real-time weather updates</span>,
+  including <strong>temperature</strong>,
+  <strong> humidity</strong>,
+  <strong> wind speed</strong>,
+  <strong> pressure</strong>,
+  <strong> visibility</strong>,
+  <strong> sunrise</strong> and
+  <strong> sunset</strong>.
 </p>
 
 <div className="intro-box">
@@ -159,26 +173,28 @@ function App() {
           </p>
 
         </header>
-<button
-  className="support-btn"
-  onClick={() =>
-    window.location.href =
-      "mailto:abdulraquib045@gmail.com"
-  }
->
-  📧 Support
-</button>
+<div className="top-buttons">
+  <button
+    className="support-btn"
+    onClick={() =>
+      window.location.href =
+        "mailto:abdulraquib045@gmail.com"
+    }
+  >
+    📧
+  </button>
 
-        <button
-          className="theme-btn"
-          onClick={() => {
-  const newTheme = !darkMode;
-  setDarkMode(newTheme);
-  saveTheme(newTheme ? "dark" : "light");
-}}
-        >
-          {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-        </button>
+  <button
+    className="theme-btn"
+    onClick={() => {
+      const newTheme = !darkMode;
+      setDarkMode(newTheme);
+      saveTheme(newTheme ? "dark" : "light");
+    }}
+  >
+    {darkMode ? "☀️" : "🌙"}
+  </button>
+</div>
 
         <input
           type="text"
@@ -217,9 +233,6 @@ function App() {
 
             <h3>🕘 Recent Searches</h3>
 
-<p className="history-text">
-Quickly search your recently viewed cities.
-</p>
 
             {history.map((item, index) => (
 
@@ -263,6 +276,15 @@ Quickly search your recently viewed cities.
             <h3 className="temp">
               {Math.round(weather.main.temp)}°C
             </h3>
+            <button
+  className="clear-history"
+  onClick={() => {
+    setHistory([]);
+    localStorage.removeItem("history");
+  }}
+>
+  🗑️ Clear History
+</button>
                         <p>
               🌡 Feels Like :
               {Math.round(weather.main.feels_like)}°C
@@ -370,7 +392,7 @@ Quickly search your recently viewed cities.
                       <footer className="footer">
   <p>🌍 Powered by OpenWeather API</p>
   <p>⚛ Built with React + Vite</p>
-  <p>📧 Email for any inquiry : abdulraquib045@gmail.com</p>
+  <p>📧 Email for inquiry : abdulraquib045@gmail.com</p>
 </footer>
                       </article>
         )}
