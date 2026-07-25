@@ -31,7 +31,7 @@ https://github.com/abdulraquib-18/weather-app
 
 ## 👨‍💻 Author
 
-**Abdul Raquib**
+**Abdul Raquib🐐**
 
 Email: abdulraquib045@gmail.com# React + Vite
 
