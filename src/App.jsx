@@ -165,7 +165,7 @@ localStorage.setItem("history", JSON.stringify(updatedHistory));
 
         <header>
 
-          <h1>🌤 Weather Cast</h1>
+          <h1>🌤 Weather foreCast</h1>
 
           <p className="app-description">
             Fast • Accurate • Real-Time Weather Forecast
