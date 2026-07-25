@@ -28,7 +28,7 @@ function App() {
   const [greeting, setGreeting] = useState("");
 
   // OpenWeather API Key
-  const apiKey = "7e109b194588edd2d03805df880c18cd";
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   // ==========================
   // Splash Screen (3 Seconds)
