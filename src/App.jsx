@@ -16,7 +16,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(
   getTheme() === "dark"
 );
-  const [showSplash, setShowSplash] = useState(true);
   const [error, setError] = useState("");
 
   // Last 3 Search History
@@ -30,17 +29,6 @@ function App() {
   // OpenWeather API Key
   const apiKey = import.meta.env.VITE_API_KEY;
 
-  // ==========================
-  // Splash Screen (3 Seconds)
-  // ==========================
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // ==========================
   // Greeting
@@ -99,58 +87,6 @@ localStorage.setItem("history", JSON.stringify(updatedHistory));
   // ==========================
 
   const bgClass = getBackground(weather);
-  
-  // ==========================
-  // Splash Screen
-  // ==========================
-
-  if (showSplash) {
-    return (
-      <div className="splash-screen">
-
-        <h1 className="app-title">
-  🌦️ Weather App
-</h1>
-
-<p className="intro-text">
-  Search any city and get accurate
-  <span> real-time weather updates</span>,
-  including <strong>temperature</strong>,
-  <strong> humidity</strong>,
-  <strong> wind speed</strong>,
-  <strong> pressure</strong>,
-  <strong> visibility</strong>,
-  <strong> sunrise</strong> and
-  <strong> sunset</strong>.
-</p>
-
-<div className="intro-box">
-
-  <h2>👨‍💻 Project By</h2>
-
-  <p><strong>Name :</strong> Abdul Raquib</p>
-
-  <p><strong>Course :</strong> Diploma in Computer Science & Engineering</p>
-
-  <p><strong>Roll No :</strong> 25DPCS005HY</p>
-
-  <p><strong>Enrollment No :</strong> A250923</p>
-
-  <p><strong>Email :</strong> abdulraquib045@gmail.com</p>
-
-</div>
-
-<div className="loader">
-  <div className="loader-bar"></div>
-</div>
-
-<p className="loading-text">
-  Loading Weather App...
-</p>
-
-      </div>
-    );
-  }
 
   // ==========================
   // Main UI
