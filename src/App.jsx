@@ -326,7 +326,6 @@ localStorage.setItem("history", JSON.stringify(updatedHistory));
 
             <hr />
                       <footer className="footer">
-  <p>🌍 Powered by OpenWeather API</p>
   <p>⚛ Built with React + Vite</p>
   <p>📧 Email for inquiry : abdulraquib045@gmail.com</p>
 </footer>
